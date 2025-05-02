@@ -1,0 +1,92 @@
+/* Styling for the product list and items */
+.product-list {
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    width: 220px;
+    max-width: 300px;
+    height: auto;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+.product-item a{
+    text-decoration:none;
+}
+.product-item .productName {
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 8px 0 4px;
+}
+
+.product-item .artist {
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+
+.product-item .price {
+    font-size: 15px;
+    color: var(--primary-color);
+    margin: 4px 0;
+    font-weight: bold;
+}
+
+.product-item .cardBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-item .cardBottom .AddToCart {
+    background-color: #fff;
+    color: #888;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-item .AddToCart:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .product-list {
+        justify-content: start;
+        
+        padding: 10px;
+    }
+
+    .product-item {
+        width: 150px;
+        max-width: none;
+        height: auto;
+        margin-right: 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+
+    }
+}
