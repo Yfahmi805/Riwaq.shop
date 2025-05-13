@@ -46,8 +46,21 @@ function App() {
   return (
     <>
       <div>
-        <BrowserRouter>
+        <BrowserRouter basename="/Riwaq.shop">
           <Routes>
+            <Route
+              index
+              element={
+                <Home
+                  cart={cart}
+                  addToCart={addToCart}
+                  removeFromCart={removeFromCart}
+                  updateQuantity={updateQuantity}
+                  showCart={showCart}
+                  hideCart={hideCart}
+                />
+              }
+            />
             <Route
               path="/"
               element={
