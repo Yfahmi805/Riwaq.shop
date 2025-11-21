@@ -1,38 +1,50 @@
-import React from 'react';
-import './Footer.css';
-import LogoImg from '../../assets/images/logo.png'
+import React from 'react'
+import './footer.css'
+import LogoText from '../../assets/images/logo.png'
+function footer(){
+    return(
+        <div className="footer">
+            <div className="footer-inner">
 
-import { FaFacebook,FaPinterest } from "react-icons/fa6";
-import { RiInstagramFill } from "react-icons/ri";
-function Footer() {
-    return (
-        <footer>
-            <div className="footer-content">
-                <div className="footer-logo">
-                    <img src={LogoImg} alt="Riwaq" />
+
+                <div className="footer-left">
+                    <h3>Friends let friends know about best products</h3>
+                    <p>and content.</p>
+
+                    <div className="footer-input">
+                        <input type="email" placeholder="Enter email address.." />
+                        <button>➤</button>
+                    </div>
                 </div>
-                <div className="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Trending</a></li>
-                        <li><a href="#">Sellers Space</a></li>
-                    </ul>
+
+                <div className="footer-right">
+                    <div className="footer-links">
+                        <div className="col">
+                            <a href="/">Shop</a>
+                            <a href="/">FAQ</a>
+                            <a href="/">Shipping & Returns</a>
+                            <a href="/">About</a>
+                            <a href="/">Download App</a>
+                        </div>
+                        <div className="col">
+                            <a href="/">Terms and Conditions</a>
+                            <a href="/">Privacy Policy</a>
+                            <a href="/">Credits</a>
+                            <a href="/">Cookies Policy</a>
+                            <a href="/">Contact Us</a>
+                        </div>
+                    </div>
                 </div>
-                <div className="footer-social">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li><a href="#" ><FaFacebook className='icon'/></a></li>
-                        <li><a href="#"><FaPinterest className='icon'/></a></li>
-                        <li><a href="#"><RiInstagramFill className='icon'/></a></li>
-                    </ul>
-                </div>
+
             </div>
-            <p>&copy; 2025 Riwaq. All rights reserved.</p>
-        </footer>
-    );
-};
 
-export default Footer;
+            <div className="footer-brand">
+                <img src={LogoText} alt="Riwaq" />
+            </div>
+            <p className="footer-copy">© Riwaq 2024</p>
+        </div>
+
+    )
+}
+
+export default footer

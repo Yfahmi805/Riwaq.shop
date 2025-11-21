@@ -1,12 +1,13 @@
-body {
-    font-family: 'Poppins',sans-serif;
-    padding: 0;
-    margin: 0;
-}
+/* ===============  GLOBAL AESTHETIC  =============== */
 :root {
-    --primary-color: #912C38;
-    --secondary-color: #d3ebab;
-    --tertiary-color: #6a7d3a;
+  --paper: #efe7db;
+  --ink: #111;
+}
+body, .home {
+  font-family: "Inter", serif;
+  color: var(--ink);
+  padding: 0;
+  margin:0;
 }
 .icon{
     font-size:25px;

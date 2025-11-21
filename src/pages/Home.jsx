@@ -1,97 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import Categories from '../data/categories'
-import Products from '../data/products'
-import { BiShoppingBag } from "react-icons/bi";
+import HeroImg from '../assets/images/back.jpeg';
 import './Home.css';
-import { MdAddShoppingCart } from 'react-icons/md';
-import Cart from '../components/cart/cart';
-import ProductsComponent from '../components/products/products';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import products from '../data/products.js';
+import categories from '../data/categories.js';
+function Home() {
+  return (
+    <div className="home">
+      <Header />
 
-function Home({ showCart, cart, addToCart, removeFromCart, updateQuantity, hideCart }) {
-    return (
-        <div>
-            <Header showCart={showCart} cart={cart} />
-            <Cart
-                cart={cart}
-                hideCart={hideCart}
-                removeFromCart={removeFromCart}
-                updateQuantity={updateQuantity}
-            />
-            <main>
-                <div className="content">
-                    <h1>We give new life to pre-used clothes</h1>
-                    <p>Discover unique, eco-friendly fashion pieces curated by creative designers.</p>
-                    <button className="callToAction">Discover Now</button>
-                </div>
-            </main>
-            <section className="categories" id="categories">
-                <h2>Categories</h2>
-                <div className="category-list">
-                    {Categories.map((category) => (
-                        <Link
-                            to={`/search?category=${category.id}`}
-                            className="category-item"
-                            key={category.id}
-                        >
-                            <img src={category.imageUrl} alt={category.name} />
-                            <h3>{category.name}</h3>
-                        </Link>
-                    ))}
-                </div>
-            </section>
-            <section className="trending" id="trending">
-                <h2>Trending</h2>
-                <ProductsComponent products={Products.sort((a, b) => b.trendingRate - a.trendingRate).slice(0, 6)} addToCart={addToCart} />
-            </section>
-
-            <section className="mission" id="mission">
-                <div className="mission-content">
-                    <h2>Our Mission</h2>
-                    <p>
-                        We love to create a unique online fashion marketplace that connects local artisans and fashion enthusiasts, empowering sustainable shopping and celebrating authentic style from Morocco and beyond.
-                    </p>
-                </div>
-            </section>
-            <section className="foryou" id="foryou">
-                <h2>For You</h2>
-                <ProductsComponent products={Products} addToCart={addToCart} />
-                <div className="loadmore">
-                    <button>Load more..</button>
-                </div>
-            </section>
-            <section className="how-it-works">
-                <h2>How It Works</h2>
-                <div className="steps">
-                    <div className="step">
-                        <img src="https://img.icons8.com/ios-filled/100/shopping-bag.png" />
-                        <h3>Browse</h3>
-                        <p>Discover clothes from trusted sellers and local cooperatives.</p>
-                    </div>
-                    <div className="step">
-                        <img src="https://img.icons8.com/ios-filled/100/shopping-cart.png" />
-                        <h3>Order</h3>
-                        <p>Buy your favorite pieces with secure checkout.</p>
-                    </div>
-                    <div className="step">
-                        <img src="https://img.icons8.com/ios-filled/100/delivery.png" />
-                        <h3>Receive</h3>
-                        <p>Enjoy fast, eco-friendly delivery to your door.</p>
-                    </div>
-                </div>
-            </section>
-            <section className="panel" id="panel">
-                <div className="panel-content">
-                    <h2>Join the Riwaq Community</h2>
-                    <p>Be part of a sustainable fashion movement. Share your style, connect with others, and make a difference.</p>
-                    <button className="join-button">Join Now</button>
-                </div>
-            </section>
-            <Footer />
+      <section className="hero-parfs">
+        <div className="hero-content">
+          <h1>Authentic Style,<br />Crafted with Heart</h1>
+          <p>Discover Morocco’s finest artisans and elevate your wardrobe with timeless, sustainable pieces.</p>
+          <Link className="hero-btn" to="/category/1">Explore Collections <RiArrowRightLine /></Link>
         </div>
-    );
+      </section>
+
+      <section className="categories-parfs">
+        <h2>Explore by Category</h2>
+        <div className="categories-grid">
+          {categories.map(cat => (
+            <Link to={`/category/${cat.id}`} className="category-parfs-card" key={cat.id}>
+              <img src={cat.img} alt={cat.name} />
+              <h3>{cat.name}</h3>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mission-parfs">
+        <div className="mission-box">
+          <h2>Our Mission</h2>
+          <p>
+            We aim to create a modern marketplace that elevates Moroccan artisans
+            and brings sustainable fashion to a global audience.
+          </p>
+          <Link className="mission-btn" to="/category/4">Meet Our Artisans</Link>
+        </div>
+      </section>
+
+      <section className="new-products-parfs">
+        <h2>New Arrivals</h2>
+        <div className="new-grid">
+          {products.slice(0, 4).map(item => (
+            <Link to={`/product/${item.id}`} className="new-card" key={item.id}>
+              <img src={item.image} alt={item.name} />
+              <p className="prod-name">{item.name}</p>
+              <p className="prod-price">${item.price}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+    <section className="testimonials-parfs">
+      <h2>What Our Community Says</h2>
+      <div className="testi-grid">
+        <div className="testi-card">
+          <p>“Every piece feels unique — you can truly see the artisan’s touch.”</p>
+          <span>- Sofia M.</span>
+        </div>
+        <div className="testi-card">
+          <p>“Supporting real Moroccan artists makes every purchase meaningful.”</p>
+          <span>- Karim A.</span>
+        </div>
+      </div>
+    </section>
+
+      <Footer/>
+    </div>
+  );
 }
 
 export default Home;
