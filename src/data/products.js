@@ -1,5 +1,5 @@
 import product1 from '../assets/images/fashion/hoddies.jpg'
-import product2 from '../assets/images/fashion/hoddies2.jpg'
+import product2 from '../assets/images/fashion/Hoddies2.jpg'
 import product3 from '../assets/images/fashion/pants.jpg'
 import product4 from '../assets/images/fashion/jackets.jpg'
 const products = [
